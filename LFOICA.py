@@ -87,7 +87,7 @@ class Generative_net(nn.Module):
         super().__init__()
         # for simulation exp, we initialize A with it's true value added with some large noise to avoid local optimum.
         # all methods are compared under the same initialization
-        self.A = nn.Parameter(A + torch.Tensor(np.random.uniform(-0.3, 0.3, [num_mixtures, num_components])))
+        self.A = nn.Parameter(A + torch.Tensor(np.random.uniform(-0.2, 0.2, [num_mixtures, num_components])))
 
 
     def forward(self, components):
@@ -97,8 +97,8 @@ class Generative_net(nn.Module):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--num_mixtures', type=int, default=2)
-parser.add_argument('--num_components', type=int, default=3)
+parser.add_argument('--num_mixtures', type=int, default=5)
+parser.add_argument('--num_components', type=int, default=10)
 parser.add_argument('--batch_size', type=int, default=2000)
 parser.add_argument('--num_epochs', type=int, default=1000)
 parser.add_argument('--lr_T', type=float, default=0.01)
